@@ -19,7 +19,7 @@ BLEU 分数计算与可视化分析
 🖥️ 硬件配置
 项目	推荐配置
 GPU	NVIDIA GeForce RTX 4090 (24GB VRAM)
-CPU	Intel i9 / AMD Ryzen 9 或更高
+CPU	Intel i9 / AMD Ryzen 9 
 内存	≥ 32 GB
 硬盘	≥ 100 GB 可用空间
 CUDA 版本	11.8
@@ -53,19 +53,13 @@ numpy>=1.23.0
 pandas>=2.0.0
 
 📂 项目结构
+
 Transformer_Assignment/
 ├── src/
 │   ├── model.py              # Transformer 模型定义（Encoder、Decoder、Attention等）
-│   ├── train.py              # 训练与验证主脚本
-│   ├── utils.py              # 可选辅助工具
+│   ├── train.py              # 训练与验证主脚本            
 │
 ├── data/
-│   ├── tokenizer/
-│   │   └── iwslt_bpe.model   # SentencePiece 分词模型
-│   ├── processed/
-│       ├── train.pt
-│       ├── valid.pt
-│       └── test.pt
 │
 ├── result/                   # 模型权重、曲线与日志输出文件夹
 │   ├── loss_curve.png
