@@ -1,23 +1,22 @@
-# Transformer-IWSLT2017-EN-DE-
-大模型基础与应用期中作业
-🧠 Transformer 模型实现与训练说明
-📋 项目简介
+🚀 Transformer 模型实现与训练说明
+🧠 项目简介
 
 本项目实现了一个 基于 Transformer Encoder–Decoder 架构 的神经机器翻译模型（English → German），支持 相对位置编码（Relative Positional Encoding）。
-主要内容包括：
 
-手工实现多头自注意力（Multi-Head Self-Attention）
+主要特性包括：
 
-前馈网络（Position-wise FeedForward）
+✅ 多头自注意力（Multi-Head Self-Attention）
 
-残差连接 + 层归一化（Residual + LayerNorm）
+✅ 前馈网络（Position-wise Feed Forward Network）
 
-相对与绝对位置编码机制
+✅ 残差连接 + 层归一化（Residual + LayerNorm）
 
-BLEU 分数计算与可视化分析
+✅ 相对与绝对位置编码机制
 
-⚙️ 硬件与环境要求
-🖥️ 硬件配置
+✅ BLEU 分数计算与可视化分析
+
+⚙️ 硬件与运行环境
+💻 硬件配置
 项目	推荐配置
 GPU	NVIDIA GeForce RTX 4090 (24GB VRAM)
 CPU	Intel i9 / AMD Ryzen 9 或更高
@@ -25,23 +24,21 @@ CPU	Intel i9 / AMD Ryzen 9 或更高
 硬盘	≥ 100 GB 可用空间
 CUDA 版本	11.8
 
-若使用其他 GPU（如 3090、A100），只需保持相同的 CUDA 版本和 PyTorch 兼容性即可。
+若使用其他 GPU（如 3090、A100），仅需保证 CUDA 兼容性一致即可。
 
-🧩 软件环境
-📦 安装依赖
+🧩 软件依赖
+📦 安装步骤
 
-建议使用 Python 3.10+ 与 虚拟环境（conda 或 venv）：
+建议使用 Python 3.10+ 与 conda 环境：
 
-# 创建并激活环境
+# 创建虚拟环境
 conda create -n transformer python=3.10
 conda activate transformer
 
 # 安装依赖
 pip install -r requirements.txt
 
-
-requirements.txt 内容如下：
-
+📋 requirements.txt
 torch>=2.0.0
 torchvision>=0.15.0
 torchaudio>=2.0.0
@@ -57,11 +54,11 @@ pandas>=2.0.0
 Transformer_Assignment/
 ├── src/
 │   ├── model.py              # Transformer 模型定义（Encoder、Decoder、Attention等）
-│   ├── train.py              # 训练与验证主脚本
+│   ├── train.py              # 主训练脚本
 │
 ├── data/
 │
-├── result/                   # 模型权重、曲线与日志输出文件夹
+├── result/                   # 模型与曲线输出
 │   ├── loss_curve.png
 │   ├── bleu_curve.png
 │   ├── learning_rate.png
@@ -72,10 +69,9 @@ Transformer_Assignment/
 ├── requirements.txt
 └── README.md
 
-🚀 运行与复现实验
-🎯 单次训练命令
+🧪 可复现实验命令
 
-以下命令可在 RTX 4090 上直接复现实验结果：
+以下命令可在 RTX 4090 + CUDA 11.8 环境下直接运行：
 
 python src/train.py \
   --epochs 20 \
@@ -89,29 +85,36 @@ python src/train.py \
   --seed 42
 
 
-建议使用 --seed 42 以保证可复现性。
-所有训练日志和模型文件将自动保存在 result/ 文件夹中。
+✅ 可复现性说明：
+实验中使用 --seed 42 固定随机种子，以保证结果在不同环境中一致。
+所有训练日志与模型文件将自动保存到 result/ 文件夹中。
 
-📊 输出与结果
+📊 结果输出与可视化
 
-训练结束后，程序会自动生成以下可视化结果：
+训练完成后将自动生成以下结果图表：
 
-图表	文件	说明
-训练 & 验证 Loss 曲线	result/loss_curve.png	模型收敛情况
-BLEU 分数曲线	result/bleu_curve.png	翻译质量变化
-学习率变化曲线	result/learning_rate.png	Noam Scheduler 可视化
-每轮训练耗时	result/epoch_time.png	性能分析
-综合性能对比图	result/performance_summary.png	实验总结
-📈 BLEU 评估
+图表	文件路径	说明
+📈 训练 & 验证 Loss 曲线	result/loss_curve.png	模型收敛趋势
+🧾 BLEU 分数曲线	result/bleu_curve.png	翻译性能变化
+🧮 学习率变化曲线	result/learning_rate.png	Noam Scheduler 可视化
+⏱️ 每轮训练耗时统计	result/epoch_time.png	性能分析
+🧠 综合性能对比	result/performance_summary.png	全面实验对比
+📈 BLEU 评估示例
 
-模型训练完成后会在验证集与测试集上自动计算 BLEU 分数：
+训练日志示例输出：
+
+Epoch [10/20] | Train Loss: 4.85 | Valid Loss: 4.67 | BLEU: 27.4 | Time: 2.12 min
+Epoch [20/20] | Train Loss: 3.92 | Valid Loss: 3.70 | BLEU: 32.8 | Time: 2.18 min
+
+
+计算方式：
 
 bleu = calculate_bleu(model, valid_loader, sp, device)
 
-🧪 可选实验设置
-实验变量	参数名	示例
-关闭相对位置编码	移除 --relative-position	baseline
-修改学习率	--lr	--lr 3e-4
-调整warmup步数	--warmup-steps	--warmup-steps 8000
-控制最大样本量	--max-train-samples	--max-train-samples 100000
-改变batch size	--batch-size	--batch-size 128
+🧮 可选实验变量
+实验目标	参数	示例命令
+关闭相对位置编码	无 --relative-position	baseline
+调整学习率	--lr	--lr 3e-4
+增加 warmup 步数	--warmup-steps	--warmup-steps 8000
+限制训练样本量	--max-train-samples	--max-train-samples 100000
+调整 batch 大小	--batch-size	--batch-size 128
