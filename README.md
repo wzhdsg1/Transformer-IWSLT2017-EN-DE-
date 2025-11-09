@@ -56,22 +56,22 @@ pandas>=2.0.0
 
 Transformer_Assignment/
 
-├── src\
-│   ├── model.py              # Transformer 模型定义（Encoder、Decoder、Attention等）
-│   ├── train.py              # 训练与验证主脚本            
-│
-├── data/
-│
-├── result/                   # 模型权重、曲线与日志输出文件夹
-│   ├── loss_curve.png
-│   ├── bleu_curve.png
-│   ├── learning_rate.png
-│   ├── epoch_time.png
-│   ├── performance_summary.png
-│   └── best_model.pt
-│
-├── requirements.txt
-└── README.md
+├── src/\
+│   ├── model.py              # Transformer 模型定义（Encoder、Decoder、Attention等）\
+│   ├── train.py              # 训练与验证主脚本            \
+│\
+├── data/\
+│\
+├── result/                   # 模型权重、曲线与日志输出文件夹\
+│   ├── loss_curve.png\
+│   ├── bleu_curve.png\
+│   ├── learning_rate.png\
+│   ├── epoch_time.png\
+│   ├── performance_summary.png\
+│   └── best_model.pt\
+│\
+├── requirements.txt\
+└── README.md\
 
 
 🚀 运行与复现实验
