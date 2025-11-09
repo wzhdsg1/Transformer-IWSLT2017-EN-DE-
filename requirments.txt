@@ -1,0 +1,27 @@
+# === Core ===
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# === Data processing ===
+sentencepiece>=0.1.99
+numpy>=1.23.0
+pandas>=2.0.0
+
+# === Evaluation ===
+nltk>=3.8.1   # for BLEU score calculation
+
+# === Visualization ===
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# === Logging & utilities ===
+loguru>=0.7.0
+
+# === (Optional) Jupyter/Interactive work ===
+jupyter
+notebook
+
+# === (Optional) GPU Support ===
+# CUDA 11.8:
+# torch==2.1.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
