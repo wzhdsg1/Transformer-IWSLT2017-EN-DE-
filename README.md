@@ -56,7 +56,7 @@ pandas>=2.0.0
 
 Transformer_Assignment/
 
-├── src/
+├── src\
 │   ├── model.py              # Transformer 模型定义（Encoder、Decoder、Attention等）
 │   ├── train.py              # 训练与验证主脚本            
 │
