@@ -1,4 +1,4 @@
-🚀 Transformer 模型实现与训练说明
+# 🚀 Transformer Neural Machine Translation (EN→DE)
 🧠 项目简介
 
 本项目实现了一个 基于 Transformer Encoder–Decoder 架构 的神经机器翻译模型（English → German），支持 相对位置编码（Relative Positional Encoding）。
